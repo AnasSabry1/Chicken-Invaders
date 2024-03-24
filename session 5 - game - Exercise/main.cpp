@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
     view.setFixedSize(800,600);
     view.setBackgroundBrush(Qt::white);
 
-    // Score
+    // Score and health and game over
     QGraphicsTextItem *score = new QGraphicsTextItem;
     score->setFont(QFont("times", 16));
     score->setDefaultTextColor(Qt::black);
@@ -64,8 +64,6 @@ int main(int argc, char *argv[])
 QTimer * time = new QTimer();
     QObject::connect(time, SIGNAL(timeout()),p,SLOT(createEnemy()));
     time->start(2000);
-
-    view.setScene(&scene);
 
     return a.exec();
 }

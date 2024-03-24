@@ -54,14 +54,21 @@ void Player::createEnemy()
 }
 void  Player::increase_score(){
     scorecount++;
+    score->setDefaultTextColor(Qt::blue);
     score->setPlainText("Score: " + QString::number(scorecount));
 }
 void  Player::decrease_heart(){
     heartcount--;
+    if(heartcount == 0){
+        Gameover();
+    }
+    heart->setDefaultTextColor(Qt::red);
     heart->setPlainText("HP: " + QString::number(heartcount));
+
 }
 void  Player::decrease_score(){
     scorecount--;
+    score->setDefaultTextColor(Qt::red);
     score->setPlainText("Score: " + QString::number(scorecount));
 }
 int Player::getscore(){
@@ -69,6 +76,22 @@ int Player::getscore(){
 }
 int Player::getheart(){
     return heartcount;
+}
+void Player::Gameover(){
+
+    QGraphicsTextItem *gameover = new QGraphicsTextItem;
+    gameover->setFont(QFont("times", 40));
+    gameover->setDefaultTextColor(Qt::red);
+    gameover->setPlainText("Game Over");
+    gameover->setPos(250,250);
+    scene()->addItem(gameover);
+    QGraphicsTextItem *finalscore = new QGraphicsTextItem;
+    finalscore->setFont(QFont("times", 40));
+    finalscore->setDefaultTextColor(Qt::black);
+    finalscore->setPlainText("Score: " + QString::number(scorecount));
+    finalscore->setPos(250,350);
+    scene()->addItem(finalscore);
+
 }
 
 

@@ -19,6 +19,7 @@ public:
     int getscore();
     int getheart();
     void createsandh();
+    void Gameover();
 private:
     QGraphicsTextItem *score = new QGraphicsTextItem;
     QGraphicsTextItem *heart = new QGraphicsTextItem;

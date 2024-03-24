@@ -43,9 +43,9 @@ void Enemy:: move()
         {
 
             scene()->removeItem(this);
-
-            p1->decrease_heart();
             p1->decrease_score();
+            p1->decrease_heart();
+
 
 
             delete this;
@@ -54,9 +54,10 @@ void Enemy:: move()
         }
     }
     setPos(x()+xmove,y()+5);
-        if(y()+pixmap().height()>800)
+        if(y()+pixmap().height()>600)
     {
         p1->decrease_score();
+        p1->decrease_heart();
         scene()->removeItem(this);
             delete this;
     }
