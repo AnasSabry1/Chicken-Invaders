@@ -5,16 +5,22 @@
 #include <QGraphicsPixmapItem>
 #include <QGraphicsTextItem>
 #include <QDebug>
+#include <QTimer>
 #include "enemy.h"
 
 Player::Player(QGraphicsTextItem *score, QGraphicsTextItem* health) {
     this->score = score;
     this->heart = health;
+    time = new QTimer();
+    QObject::connect(time, SIGNAL(timeout()),this,SLOT(createEnemy()));
+    time->start(2000);
 }
 
 void Player::keyPressEvent(QKeyEvent *event)
 {
 
+
+    if(control){
         // *******  Event Handling for the Player ********
     if(event->key()== Qt::Key_Left)
     {
@@ -35,7 +41,7 @@ void Player::keyPressEvent(QKeyEvent *event)
         bullet->setPos(x()+25,y()-65);
         scene()->addItem(bullet);
 
-    }
+    }}
 
 
 }
@@ -58,7 +64,8 @@ void  Player::increase_score(){
     score->setPlainText("Score: " + QString::number(scorecount));
 }
 void  Player::decrease_heart(){
-    heartcount--;
+    if(control){
+        heartcount--;}
     if(heartcount == 0){
         Gameover();
     }
@@ -67,7 +74,7 @@ void  Player::decrease_heart(){
 
 }
 void  Player::decrease_score(){
-    scorecount--;
+    if(control){scorecount--;}
     score->setDefaultTextColor(Qt::red);
     score->setPlainText("Score: " + QString::number(scorecount));
 }
@@ -78,7 +85,7 @@ int Player::getheart(){
     return heartcount;
 }
 void Player::Gameover(){
-
+    QObject::disconnect(time, SIGNAL(timeout()),this,SLOT(createEnemy()));
     QGraphicsTextItem *gameover = new QGraphicsTextItem;
     gameover->setFont(QFont("times", 40));
     gameover->setDefaultTextColor(Qt::red);
@@ -91,6 +98,7 @@ void Player::Gameover(){
     finalscore->setPlainText("Score: " + QString::number(scorecount));
     finalscore->setPos(250,350);
     scene()->addItem(finalscore);
+    control=0;
 
 }
 

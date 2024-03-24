@@ -61,9 +61,6 @@ int main(int argc, char *argv[])
 
     // *******  Create the Enemies automatically ********
 
-QTimer * time = new QTimer();
-    QObject::connect(time, SIGNAL(timeout()),p,SLOT(createEnemy()));
-    time->start(2000);
 
     return a.exec();
 }

@@ -5,6 +5,7 @@
 #include <QGraphicsTextItem>
 #include <QGraphicsScene>
 #include <QObject>
+#include <QTimer>
 
 class Player: public QObject, public QGraphicsPixmapItem
 {
@@ -20,11 +21,15 @@ public:
     int getheart();
     void createsandh();
     void Gameover();
+    bool check();
 private:
     QGraphicsTextItem *score = new QGraphicsTextItem;
     QGraphicsTextItem *heart = new QGraphicsTextItem;
+    QTimer * time;
     int scorecount=0;
     int heartcount=3;
+    bool control =1;
+
 
 public slots:
     void createEnemy();

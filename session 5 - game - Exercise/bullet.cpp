@@ -9,7 +9,7 @@
 Bullet::Bullet(Player *p):QObject(), QGraphicsPixmapItem() {
 
         // *******  Setting the bullets' size ********
-    setPixmap(QPixmap("B:/this pc/cs lab/Chicken_invaders/Chicken-Invaders/Images/bullet.png").scaled(50,75));
+    setPixmap(QPixmap("B:/this pc/cs lab/Chicken_invaders/Chicken-Invaders/Images/bullet.png").scaled(20,50));
     p1=p;
         // *******  Generating the Bullets automatically ********
     QTimer * timer = new QTimer();
