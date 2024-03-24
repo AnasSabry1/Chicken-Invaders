@@ -6,11 +6,11 @@
 #include <enemy.h>
 #include <player.h>
 
-Bullet::Bullet():QObject(), QGraphicsPixmapItem() {
+Bullet::Bullet(Player *p):QObject(), QGraphicsPixmapItem() {
 
         // *******  Setting the bullets' size ********
-    setPixmap(QPixmap("C:/Users/anass/OneDrive/Desktop/QT Assigment 2/Chicken-Invaders/Images/bullet.png").scaled(50,75));
-
+    setPixmap(QPixmap("B:/this pc/cs lab/Chicken_invaders/Chicken-Invaders/Images/bullet.png").scaled(50,75));
+    p1=p;
         // *******  Generating the Bullets automatically ********
     QTimer * timer = new QTimer();
     connect(timer, SIGNAL(timeout()),this,SLOT (move()));
@@ -29,6 +29,7 @@ void Bullet:: move()
             {
                 scene()->removeItem(colliding_items[i]);
             scene()->removeItem(this);
+                p1->increase_score();
                 delete colliding_items[i];
             delete this;
                 return;

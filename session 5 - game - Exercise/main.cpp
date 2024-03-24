@@ -22,17 +22,33 @@ int main(int argc, char *argv[])
     view.setFixedSize(800,600);
     view.setBackgroundBrush(Qt::white);
 
+    // Score
+    QGraphicsTextItem *score = new QGraphicsTextItem;
+    score->setFont(QFont("times", 16));
+    score->setDefaultTextColor(Qt::black);
+    score->setPlainText("score : "+ QString::number(0));
+    score->setPos(700,10);
+    scene.addItem(score);
+    QGraphicsTextItem *heart = new QGraphicsTextItem;
+    heart->setFont(QFont("times", 16));
+    heart->setDefaultTextColor(Qt::black);
+    heart->setPlainText("HP : "+ QString::number(3));
+    heart->setPos(700,30);
+    scene.addItem(heart);
+
     // *******  Create the Player ********
 
-    QPixmap playericon("C:/Users/anass/OneDrive/Desktop/QT Assigment 2/Chicken-Invaders/Images/Spaceship.png");
+    QPixmap playericon("B:/this pc/cs lab/Chicken_invaders/Chicken-Invaders/Images/Spaceship.png");
     playericon = playericon.scaledToWidth(100);
     playericon = playericon.scaledToHeight(100);
-    Player * p = new Player();
+    Player * p = new Player(score, heart);
     p->setPixmap(playericon);
 
     // *******  Setting the foucs to the Player ********
      p->setFlag(QGraphicsItem::ItemIsFocusable);
      p->setFocus();
+    // ********** add score and hearts **************
+
     // *******  Adjust the location of the Player (middle of the screen) ********
      p->setPos(view.width()/2,view.height()- playericon.height());
       scene.addItem(p);
