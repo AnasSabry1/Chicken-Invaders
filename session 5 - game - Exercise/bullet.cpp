@@ -5,12 +5,14 @@
 #include <QGraphicsPixmapItem>
 #include <enemy.h>
 #include <player.h>
+#include <QMediaPlayer>
+#include <QAudioOutput>
 
-Bullet::Bullet():QObject(), QGraphicsPixmapItem() {
+Bullet::Bullet(Player *p):QObject(), QGraphicsPixmapItem() {
 
         // *******  Setting the bullets' size ********
-    setPixmap(QPixmap("C:/Users/anass/OneDrive/Desktop/QT Assigment 2/Chicken-Invaders/Images/bullet.png").scaled(50,75));
-
+    setPixmap(QPixmap("C:/Users/anass/OneDrive/Desktop/QT Assigment 2/Chicken-Invaders/Images/bullet.png").scaled(20,50));
+    p1=p;
         // *******  Generating the Bullets automatically ********
     QTimer * timer = new QTimer();
     connect(timer, SIGNAL(timeout()),this,SLOT (move()));
@@ -27,8 +29,16 @@ void Bullet:: move()
     {
         if(typeid(*(colliding_items[i]))== typeid(Enemy))
             {
+                QAudioOutput* audioOutput = new QAudioOutput();
+                QMediaPlayer* soundEffect = new QMediaPlayer();
+                soundEffect->setSource(QUrl("C:/Users/anass/OneDrive/Desktop/QT Assigment 2/Chicken-Invaders/soundeffects/hit.mp3"));
+                soundEffect->setAudioOutput(audioOutput);
+                audioOutput->setVolume(10);
+                soundEffect->play();
+
                 scene()->removeItem(colliding_items[i]);
             scene()->removeItem(this);
+                p1->increase_score();
                 delete colliding_items[i];
             delete this;
                 return;
