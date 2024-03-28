@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/snd">
+        <file>blast.mp3</file>
+        <file>hit.mp3</file>
+        <file>Theme.mp3</file>
+    </qresource>
+</RCC>

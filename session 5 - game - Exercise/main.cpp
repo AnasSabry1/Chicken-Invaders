@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
     view.setFixedSize(800,600);
 
 
-    QPixmap bgImage("C:/Users/anass/OneDrive/Desktop/QT Assigment 2/Chicken-Invaders/Images/SpaceBackground.jpg");
+    QPixmap bgImage(":/project/SpaceBackground.jpg");
     scene.setBackgroundBrush(bgImage.scaled(scene.width(),scene.height(),Qt::IgnoreAspectRatio,Qt::SmoothTransformation));
 
     // Score and health and game over
@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
 
     // *******  Create the Player ********
 
-    QPixmap playericon("C:/Users/anass/OneDrive/Desktop/QT Assigment 2/Chicken-Invaders/Images/Spaceship.png");
+    QPixmap playericon(":/project/Spaceship.png");
     playericon = playericon.scaledToWidth(100);
     playericon = playericon.scaledToHeight(100);
     Player * p = new Player(score, heart);
@@ -65,7 +65,7 @@ int main(int argc, char *argv[])
      // *******  Music ********
       QAudioOutput* audioOutput = new QAudioOutput();
       QMediaPlayer* soundEffect = new QMediaPlayer();
-      soundEffect->setSource(QUrl("C:/Users/anass/OneDrive/Desktop/QT Assigment 2/Chicken-Invaders/soundeffects/Theme.mp3"));
+      soundEffect->setSource(QUrl(":/snd/Theme.mp3"));
       soundEffect->setAudioOutput(audioOutput);
       audioOutput->setVolume(10);
       soundEffect->setLoops(1000);

@@ -12,7 +12,7 @@
 
 Enemy::Enemy(Player *p) {
         // *******  Setting the size of the enemy ********
-    setPixmap(QPixmap("C:/Users/anass/OneDrive/Desktop/QT Assigment 2/Chicken-Invaders/Images/chicken.png").scaled(100,100));
+    setPixmap(QPixmap(":/project/chicken.png").scaled(100,100));
         direction = rand()%2;
     if(direction){
             xmove=5;}
@@ -45,7 +45,7 @@ void Enemy:: move()
         {
             QAudioOutput* audioOutput = new QAudioOutput();
             QMediaPlayer* soundEffect = new QMediaPlayer();
-            soundEffect->setSource(QUrl("C:/Users/anass/OneDrive/Desktop/QT Assigment 2/Chicken-Invaders/soundeffects/hit.mp3"));
+            soundEffect->setSource(QUrl(":/snd/hit.mp3"));
             soundEffect->setAudioOutput(audioOutput);
             audioOutput->setVolume(10);
             soundEffect->play();

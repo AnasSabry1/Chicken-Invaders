@@ -11,7 +11,7 @@
 Bullet::Bullet(Player *p):QObject(), QGraphicsPixmapItem() {
 
         // *******  Setting the bullets' size ********
-    setPixmap(QPixmap("C:/Users/anass/OneDrive/Desktop/QT Assigment 2/Chicken-Invaders/Images/bullet.png").scaled(20,50));
+    setPixmap(QPixmap(":/project/bullet.png").scaled(20,50));
     p1=p;
         // *******  Generating the Bullets automatically ********
     QTimer * timer = new QTimer();
@@ -31,7 +31,7 @@ void Bullet:: move()
             {
                 QAudioOutput* audioOutput = new QAudioOutput();
                 QMediaPlayer* soundEffect = new QMediaPlayer();
-                soundEffect->setSource(QUrl("C:/Users/anass/OneDrive/Desktop/QT Assigment 2/Chicken-Invaders/soundeffects/hit.mp3"));
+                soundEffect->setSource(QUrl(":/snd/blast.mp3"));
                 soundEffect->setAudioOutput(audioOutput);
                 audioOutput->setVolume(10);
                 soundEffect->play();

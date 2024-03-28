@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/project">
+        <file>bullet.png</file>
+        <file>chicken.png</file>
+        <file>SpaceBackground.jpg</file>
+        <file>Spaceship.png</file>
+    </qresource>
+</RCC>
