@@ -50,7 +50,7 @@ void Player::keyPressEvent(QKeyEvent *event)
     {
         QAudioOutput* audioOutput = new QAudioOutput();
         QMediaPlayer* soundEffect = new QMediaPlayer();
-        soundEffect->setSource(QUrl(":/snd/blast.mp3"));
+        soundEffect->setSource(QUrl("qrc:/snd/blast.mp3"));
         soundEffect->setAudioOutput(audioOutput);
         audioOutput->setVolume(10);
         soundEffect->play();

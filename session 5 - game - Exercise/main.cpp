@@ -65,7 +65,7 @@ int main(int argc, char *argv[])
      // *******  Music ********
       QAudioOutput* audioOutput = new QAudioOutput();
       QMediaPlayer* soundEffect = new QMediaPlayer();
-      soundEffect->setSource(QUrl(":/snd/Theme.mp3"));
+      soundEffect->setSource(QUrl("qrc:/snd/Theme.mp3"));
       soundEffect->setAudioOutput(audioOutput);
       audioOutput->setVolume(10);
       soundEffect->setLoops(1000);

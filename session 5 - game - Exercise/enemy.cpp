@@ -43,12 +43,7 @@ void Enemy:: move()
     {
         if(typeid(*(colliding_items[i]))== typeid(Player))
         {
-            QAudioOutput* audioOutput = new QAudioOutput();
-            QMediaPlayer* soundEffect = new QMediaPlayer();
-            soundEffect->setSource(QUrl(":/snd/hit.mp3"));
-            soundEffect->setAudioOutput(audioOutput);
-            audioOutput->setVolume(10);
-            soundEffect->play();
+
 
 
             scene()->removeItem(this);
