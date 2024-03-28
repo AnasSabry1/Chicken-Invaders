@@ -43,14 +43,14 @@ void Player::keyPressEvent(QKeyEvent *event)
     }
     else if(event->key()== Qt::Key_Down)
 
-    { if(y()+100<800) // to prevent the player from getting out of the screen
+    { if(y()+100<600) // to prevent the player from getting out of the screen
             setPos(x(),y()+40);
     }
     else if(event->key()== Qt::Key_Space)
     {
         QAudioOutput* audioOutput = new QAudioOutput();
         QMediaPlayer* soundEffect = new QMediaPlayer();
-        soundEffect->setSource(QUrl("C:/Users/anass/OneDrive/Desktop/QT Assigment 2/Chicken-Invaders/soundeffects/blast.mp3"));
+        soundEffect->setSource(QUrl(":/snd/blast.mp3"));
         soundEffect->setAudioOutput(audioOutput);
         audioOutput->setVolume(10);
         soundEffect->play();

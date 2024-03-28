@@ -1,0 +1,10 @@
+release/bullet.o
+release/enemy.o
+release/main.o
+release/player.o
+release/qrc_Resources.o
+release/qrc_sound.o
+release/qrc_sourcefile.o
+release/moc_bullet.o
+release/moc_enemy.o
+release/moc_player.o

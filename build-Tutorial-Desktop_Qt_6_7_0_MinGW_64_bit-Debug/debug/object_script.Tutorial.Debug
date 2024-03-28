@@ -1,0 +1,10 @@
+debug/bullet.o
+debug/enemy.o
+debug/main.o
+debug/player.o
+debug/qrc_Resources.o
+debug/qrc_sound.o
+debug/qrc_sourcefile.o
+debug/moc_bullet.o
+debug/moc_enemy.o
+debug/moc_player.o
